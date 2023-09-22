@@ -32,18 +32,54 @@ let names = ["Cody", "Casey", "Clayton", "Kara", "Hope"];
 
 
 //isPalindrome
-const isPalindrome = string => string.replaceAll(' ', '') === string.replaceAll(' ', '').split('').reverse().join('');
+// const isPalindrome = string => string.replaceAll(' ', '') === string.replaceAll(' ', '').split('').reverse().join('');
 
-let myString = "a man a plan a canal panama";
-let myStringSplit = myString.split(''); //splits string at every character and returns them in an array
-console.log("myStringSplit before reverse", myStringSplit);
+// let myString = "a man a plan a canal panama";
+// let myStringSplit = myString.split(''); //splits string at every character and returns them in an array
+// console.log("myStringSplit before reverse", myStringSplit);
 
 
-let myStringSplitReverse = myStringSplit.reverse();
-console.log(myStringSplitReverse);
-console.log("myStringSplit post reverse", myStringSplit);
+// let myStringSplitReverse = myStringSplit.reverse();
+// console.log(myStringSplitReverse);
+// console.log("myStringSplit post reverse", myStringSplit);
 
-let myStringSplitReverseJoin = myStringSplitReverse.join('');
-console.log(myStringSplitReverseJoin);
+// let myStringSplitReverseJoin = myStringSplitReverse.join('');
+// console.log(myStringSplitReverseJoin);
 
-console.log(isPalindrome("a man a plan a canal panama"));
+// console.log(isPalindrome("a man a plan a canal panama"));
+
+//Write a function called capitalizeWords that takes an array of lowercase 
+//words and returns a new array where the first letter of each word is capitalized
+
+//input: ['apple', 'banana', 'cherry']
+//output: ['Apple', 'Banana', 'Cherry']
+//strings are immutable, consider slice string method
+
+function capitalizeWords(words) {
+  //return the array created by running capitalizeWord on every word in the array
+  return words.map(word => capitalizeWord(word));
+}
+
+//split into array, capitalize first thing, join back together
+function capitalizeWord(word) {
+  //split the word into array of characters
+  let letters = word.split('');
+  //capitalize the first letter, resave in the first spot
+  letters[0] = letters[0].toUpperCase(); //"C"
+  //join the letters back into string, store in variable
+  let capWord = letters.join(''); //'Chicken'
+  //return the capitalized string
+  return capWord;
+}
+
+// console.log(capitalizeWord("chicken"));
+
+let myWords = ['apple', 'banana', 'cherry']
+// console.log(capitalizeWords(myWords));
+
+//take the first letter, capitalize it, add it to slice of remaining letters
+function capitalizeWords2(words) {
+  return words.map(word => word.charAt(0).toUpperCase() + word.slice(1));
+}
+
+console.log(capitalizeWords2(myWords));
